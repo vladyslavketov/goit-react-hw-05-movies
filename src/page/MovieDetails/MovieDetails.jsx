@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useParams, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { getMovieDetails } from '../../api/api-tmdb';
 import { ButtonBack } from '../../components/ButtonBack/ButtonBack';
 
 import css from '../MovieDetails/MovieDetails.module.css';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const {movieId} = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
   const location = useLocation();
@@ -64,9 +64,13 @@ export const MovieDetails = () => {
           </li>
         </ul>
       </section>
-      <section>
-        <Outlet/>
-      </section>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section>
+          <Outlet/>
+        </section>
+      </Suspense>
     </>
   );
 };
+
+export default MovieDetails;

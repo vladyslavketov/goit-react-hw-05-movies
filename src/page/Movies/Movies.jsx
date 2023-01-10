@@ -4,7 +4,7 @@ import { getSearchMovies } from '../../api/api-tmdb';
 import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [moviesList, setMoviesList] = useState([]);
   const [searchParam, setSearchParam] = useSearchParams();
@@ -41,3 +41,5 @@ export const Movies = () => {
     </section>
   );
 };
+
+export default Movies;

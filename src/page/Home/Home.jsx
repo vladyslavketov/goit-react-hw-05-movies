@@ -1,12 +1,20 @@
 import { useState, useEffect } from 'react';
-import { getTrendingMovies } from '../../api/api-tmdb';
+// import { getTrendingMovies } from '../../api/api-tmdb';
+import { getMovies } from '../../api/api-tmdb';
 import { MoviesList } from '../../components/MoviesList/MoviesList';
 
-export const Home = () => {
+const Home = () => {
   const [moviesList, setMoviesList] = useState([]);
 
+  // useEffect(() => {
+  //   getTrendingMovies()
+  //     .then(res => {
+  //       setMoviesList(res.results);
+  //     });
+  // }, []);
+
   useEffect(() => {
-    getTrendingMovies()
+    getMovies('trend')
       .then(res => {
         setMoviesList(res.results);
       });
@@ -19,3 +27,5 @@ export const Home = () => {
     </section>
   );
 };
+
+export default Home;

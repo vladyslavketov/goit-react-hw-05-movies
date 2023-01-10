@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getMovieDetailsCast } from '../../api/api-tmdb';
 import css from '../../page/MovieDetails/MovieDetails.module.css';
 
-export const MovieDetailsCast = () => {
+const MovieDetailsCast = () => {
   const { movieId } = useParams();
   const [movieDetailsCast, setMovieDetailsCast] = useState(null);
 
@@ -47,3 +47,5 @@ export const MovieDetailsCast = () => {
     </>
   );
 };  
+
+export default MovieDetailsCast;
