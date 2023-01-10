@@ -9,14 +9,13 @@ export const Home = () => {
     getTrendingMovies()
       .then(res => {
         setMoviesList(res.results);
-        // console.log(res.results);
       });
   }, []);
 
   return (
-    <>
+    <section>
       <h1>Trending today</h1>
       {moviesList.length > 0 && <MoviesList moviesList={moviesList}/>}
-    </>
+    </section>
   );
 };

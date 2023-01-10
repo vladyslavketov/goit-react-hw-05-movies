@@ -17,18 +17,23 @@ export function getSearchMovies(searchQuery) {
     .then(res => res.json());
 };
 
+export function getMovieDetails(movieId) {
+  return fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
+    .then(res => res.json());
+};
 
-// export default function fetchPixabay(searchQuery, page) {
-//   const API_KEY = '31407944-a77d666384d67064142e5c37e';
+export function getMovieDetailsCast(movieId) {
+  return fetch(`${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`)
+    .then(res => res.json());
+};
 
-//   return fetch(`https://pixabay.com/api/?q=${searchQuery}&page=${page}&key=${API_KEY}&image_type=photo&orientation=horizontal&per_page=12`)
-//     .then(res => {
-//       if (res.ok) {
-//         return res.json();
-//       }
+export function getMovieDetailsReviews(movieId) {
+  return fetch(`${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`)
+    .then(res => res.json());
+};
 
-//       return Promise.reject(
-//         new Error(`Немає зображення за запитом ${searchQuery}`),
-//       );
-//     })
-// }
+// https://api.themoviedb.org/3/search/movie/315162?api_key=9cb79068ade378f45d510f1b7326cccd
+// https://api.themoviedb.org/3/movie/{movie_id}?api_key=9cb79068ade378f45d510f1b7326cccd&language=en-US
+
+
+// /movie/{movie_id}/credits

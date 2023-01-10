@@ -10,11 +10,9 @@ export const Layout = () => {
         <NavLink to="/movies" className={css.navLink}>Movies</NavLink>
       </nav>
     </header>
-    <section className={css.section}>
-      <div className={css.container}>
-        <Outlet />
-      </div>
-    </section>
+    <main className={css.main}>
+      <Outlet />
+    </main>
   </>
   );
 };
